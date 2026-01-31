@@ -1,0 +1,41 @@
+# docker-compose.dev.yml
+# Configuracion para desarrollo local SIN SSL
+# Uso: docker-compose -f docker-compose.dev.yml up -d
+
+services:
+  # ============================================
+  # NGINX REVERSE PROXY (Sin SSL)
+  # ============================================
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy:latest
+    container_name: nginx-proxy-dev
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx-proxy/custom.conf:/etc/nginx/conf.d/custom.conf:ro
+    networks:
+      - proxy-network
+
+  # ============================================
+  # APLICACION: Landing (Desarrollo)
+  # ============================================
+  landing:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    container_name: landing-dev
+    restart: unless-stopped
+    expose:
+      - "80"
+    environment:
+      - VIRTUAL_HOST=localhost,landing.local
+      - VIRTUAL_PORT=80
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    name: proxy-network-dev
+    driver: bridge

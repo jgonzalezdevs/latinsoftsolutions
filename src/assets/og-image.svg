@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#171717"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Logo Box -->
+  <rect x="520" y="180" width="80" height="80" rx="12" fill="#ffffff"/>
+  <rect x="524" y="184" width="72" height="72" rx="8" fill="#0a0a0a"/>
+  <text x="538" y="235" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#ffffff">L</text>
+  <text x="562" y="235" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#737373">S</text>
+
+  <!-- Company Name -->
+  <text x="600" y="320" font-family="system-ui, sans-serif" font-size="48" font-weight="800" fill="#ffffff" text-anchor="middle">LatinSoftSolutions</text>
+
+  <!-- Tagline -->
+  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="24" fill="#a3a3a3" text-anchor="middle">Transformamos Ideas en Software</text>
+
+  <!-- Services -->
+  <text x="600" y="430" font-family="system-ui, sans-serif" font-size="18" fill="#737373" text-anchor="middle">Apps Web | Apps Móviles | Sistemas Empresariales | E-commerce</text>
+
+  <!-- Stats -->
+  <g font-family="system-ui, sans-serif" text-anchor="middle">
+    <text x="350" y="520" font-size="36" font-weight="700" fill="#ffffff">+50</text>
+    <text x="350" y="550" font-size="14" fill="#737373">Proyectos</text>
+
+    <text x="600" y="520" font-size="36" font-weight="700" fill="#ffffff">+30</text>
+    <text x="600" y="550" font-size="14" fill="#737373">Clientes</text>
+
+    <text x="850" y="520" font-size="36" font-weight="700" fill="#ffffff">+5</text>
+    <text x="850" y="550" font-size="14" fill="#737373">Años</text>
+  </g>
+
+  <!-- Website -->
+  <text x="600" y="600" font-family="system-ui, sans-serif" font-size="16" fill="#525252" text-anchor="middle">latinsoftsolutions.com</text>
+</svg>

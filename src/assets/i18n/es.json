@@ -1,0 +1,304 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "projects": "Proyectos",
+    "testimonials": "Testimonios",
+    "contact": "Contactar"
+  },
+  "hero": {
+    "badge": "Desarrollo de Software Profesional",
+    "title1": "Transformamos",
+    "title2": "tus",
+    "title3": "Ideas",
+    "title4": "en",
+    "title5": "Software",
+    "description": "Desarrollamos soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio hacia el futuro digital.",
+    "cta1": "Iniciar Proyecto",
+    "cta2": "Ver Proyectos",
+    "scroll": "Scroll"
+  },
+  "services": {
+    "badge": "Servicios",
+    "title": "Lo que",
+    "titleHighlight": "Hacemos",
+    "description": "Soluciones tecnológicas integrales adaptadas a las necesidades de tu negocio",
+    "learnMore": "Saber más",
+    "items": {
+      "web": {
+        "title": "Desarrollo Web",
+        "description": "Aplicaciones web modernas y escalables con las últimas tecnologías.",
+        "features": ["Landing Pages", "E-commerce", "Web Apps"]
+      },
+      "mobile": {
+        "title": "Apps Móviles",
+        "description": "Aplicaciones nativas y multiplataforma para iOS y Android.",
+        "features": ["React Native", "Flutter", "Apps Nativas"]
+      },
+      "software": {
+        "title": "Software a Medida",
+        "description": "Sistemas personalizados que automatizan tus procesos.",
+        "features": ["ERP / CRM", "Automatización", "APIs"]
+      },
+      "ai": {
+        "title": "Inteligencia Artificial",
+        "description": "Soluciones con IA para decisiones inteligentes.",
+        "features": ["Chatbots", "ML", "Análisis"]
+      }
+    }
+  },
+  "about": {
+    "badge": "Sobre Nosotros",
+    "title": "Tu",
+    "titleHighlight": "Partner",
+    "title2": "Tecnológico",
+    "description1": "En <strong>LatinSoftSolutions</strong> nos apasiona convertir ideas en realidad digital. Somos un equipo de expertos comprometidos con la excelencia.",
+    "description2": "Trabajamos de la mano con nuestros clientes para entender sus necesidades y crear soluciones tecnológicas que generen impacto real en sus negocios.",
+    "features": {
+      "agile": { "title": "Metodologías Ágiles", "desc": "Scrum y Kanban" },
+      "support": { "title": "Soporte 24/7", "desc": "Siempre disponibles" },
+      "code": { "title": "Código Limpio", "desc": "Best practices" },
+      "delivery": { "title": "Entregas a Tiempo", "desc": "100% cumplimiento" }
+    },
+    "stats": {
+      "projects": "Proyectos",
+      "clients": "Clientes",
+      "years": "Años"
+    },
+    "buildPassed": "Build Passed",
+    "testsSuccess": "All tests successful"
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "description": "Algunos de los trabajos que hemos realizado para nuestros clientes",
+    "viewProject": "Ver Proyecto",
+    "highlights": "Destacados",
+    "technologies": "Tecnologías",
+    "items": {
+      "tiendaOnline": {
+        "title": "Tienda Online Premium",
+        "category": "E-commerce",
+        "description": "Plataforma de comercio electrónico con pasarela de pagos y gestión de inventario en tiempo real.",
+        "fullDescription": "Plataforma de comercio electrónico completa con pasarela de pagos integrada (Stripe, PayPal), gestión de inventario en tiempo real, panel de administración avanzado, catálogo dinámico con filtros inteligentes, sistema de cupones y descuentos, carrito de compras persistente, y optimización SEO completa.",
+        "highlights": ["500+ productos", "Pagos seguros", "Multi-idioma"]
+      },
+      "deliveryApp": {
+        "title": "App de Delivery",
+        "category": "App Móvil",
+        "description": "Aplicación móvil para gestión de pedidos y entregas con tracking GPS integrado.",
+        "fullDescription": "Aplicación móvil completa para gestión de pedidos y entregas con tracking GPS en tiempo real. Incluye sistema de notificaciones push, valoraciones de conductores, historial de pedidos, múltiples métodos de pago, chat en tiempo real.",
+        "highlights": ["10K+ descargas", "GPS en vivo", "4.8 rating"]
+      },
+      "sistemaErp": {
+        "title": "Sistema ERP",
+        "category": "Software Empresarial",
+        "description": "Sistema integral de gestión con módulos de inventario, ventas, compras y reportes.",
+        "fullDescription": "Sistema ERP integral con 15 módulos especializados: inventario, ventas, compras, contabilidad, recursos humanos, CRM, facturación electrónica, reportes avanzados, y dashboard ejecutivo en tiempo real.",
+        "highlights": ["15 módulos", "Multi-empresa", "Cloud native"]
+      },
+      "dashboardAnalytics": {
+        "title": "Dashboard Analytics",
+        "category": "Business Intelligence",
+        "description": "Panel de control con visualización de datos en tiempo real y KPIs personalizados.",
+        "fullDescription": "Panel de control avanzado para visualización de datos empresariales en tiempo real. Más de 50 widgets personalizables, KPIs configurables, alertas automáticas, reportes programados.",
+        "highlights": ["50+ widgets", "Alertas", "Exportación"]
+      },
+      "plataformaEducativa": {
+        "title": "Plataforma Educativa",
+        "category": "EdTech",
+        "description": "Sistema de aprendizaje con videoconferencias y evaluaciones interactivas.",
+        "fullDescription": "Plataforma de aprendizaje online completa con videoconferencias integradas (WebRTC), evaluaciones interactivas, sistema de gamificación con puntos y badges, certificados digitales verificables.",
+        "highlights": ["5K+ estudiantes", "Gamificación", "Certificados"]
+      },
+      "chatbotIa": {
+        "title": "Chatbot IA",
+        "category": "Inteligencia Artificial",
+        "description": "Asistente virtual con procesamiento de lenguaje natural para atención 24/7.",
+        "fullDescription": "Asistente virtual inteligente con procesamiento de lenguaje natural avanzado. Integración multi-canal (WhatsApp, Messenger, Web), entrenamiento personalizado con datos del negocio.",
+        "highlights": ["NLP avanzado", "Multi-canal", "95% precisión"]
+      },
+      "appFintech": {
+        "title": "App Fintech",
+        "category": "Finanzas",
+        "description": "Aplicación de gestión financiera personal con conexión bancaria.",
+        "fullDescription": "Aplicación de finanzas personales con sincronización bancaria automática, categorización inteligente de gastos con IA, presupuestos personalizados, metas de ahorro.",
+        "highlights": ["Sync bancario", "Seguridad PCI", "Reportes IA"]
+      },
+      "marketplaceB2b": {
+        "title": "Marketplace B2B",
+        "category": "E-commerce",
+        "description": "Plataforma de comercio mayorista con catálogos personalizados.",
+        "fullDescription": "Marketplace B2B completo para comercio mayorista con catálogos personalizados por cliente, cotizaciones automáticas, gestión de crédito empresarial.",
+        "highlights": ["200+ empresas", "API abierta", "Escalable"]
+      },
+      "sistemaReservas": {
+        "title": "Sistema de Reservas",
+        "category": "SaaS",
+        "description": "Plataforma de gestión de citas y reservas para servicios profesionales.",
+        "fullDescription": "Sistema SaaS de gestión de citas y reservas para clínicas, salones de belleza, consultorios y servicios profesionales. Calendario inteligente con disponibilidad en tiempo real.",
+        "highlights": ["SMS/Email", "Pagos online", "Multi-sede"]
+      },
+      "iotDashboard": {
+        "title": "IoT Dashboard",
+        "category": "Internet of Things",
+        "description": "Sistema de monitoreo industrial con sensores en tiempo real.",
+        "fullDescription": "Plataforma de monitoreo industrial IoT con soporte para más de 1000 sensores simultáneos, visualización en tiempo real, alertas predictivas basadas en machine learning.",
+        "highlights": ["1000+ sensores", "Tiempo real", "ML predictivo"]
+      }
+    }
+  },
+  "team": {
+    "badge": "Nuestro Equipo",
+    "title": "Profesionales",
+    "titleHighlight": "Apasionados",
+    "description": "Un equipo multidisciplinario comprometido con la excelencia y la innovación tecnológica",
+    "joinCta": "¿Te gustaría unirte a nuestro equipo?",
+    "openPositions": "Ver posiciones abiertas",
+    "members": {
+      "juan": { "role": "CEO & Fundador", "bio": "Ingeniero de Sistemas con más de 8 años liderando equipos de desarrollo y definiendo estrategias tecnológicas. Experto en planificación estratégica, gestión de producto y arquitectura cloud (AWS). Visionario en transformación digital con historial comprobado en escalar startups y optimizar operaciones empresariales. Mentor de equipos de alto rendimiento y defensor de metodologías ágiles." },
+      "ana": { "role": "CTO", "bio": "Arquitecta de software con expertise en sistemas distribuidos y cloud computing. Ex-ingeniera en Google." },
+      "jexel": { "role": "Senior Full Stack Developer", "bio": "Ingeniero de software senior especializado en Python, FastAPI, Django y arquitecturas de IA con LangChain. Experto en Angular, React, Vue.js y bases de datos como PostgreSQL, MongoDB y Redis. Apasionado por el clean code y las soluciones escalables en AWS." },
+      "moises": { "role": "Senior UX/UI Designer", "bio": "Diseñador creativo senior con dominio completo de Adobe Creative Suite, Figma y herramientas de prototipado. Especialista en branding, motion graphics, design systems y experiencias de usuario centradas en conversión. Experto en diseño web y móvil con enfoque en tendencias actuales." },
+      "diego": { "role": "Lead Developer", "bio": "Full-stack developer especializado en React y Node.js. Contribuidor activo de proyectos open source." },
+      "maria": { "role": "UX/UI Designer", "bio": "Diseñadora con enfoque en experiencias centradas en el usuario. Especialista en design systems." },
+      "andres": { "role": "DevOps Engineer", "bio": "Experto en automatización, CI/CD y infraestructura como código. Certificado en AWS y Azure." },
+      "laura": { "role": "Data Scientist", "bio": "PhD en Machine Learning. Especializada en NLP y sistemas de recomendación." },
+      "roberto": { "role": "Mobile Developer", "bio": "Desarrollador móvil con experiencia en apps nativas y cross-platform. +50 apps publicadas." },
+      "patricia": { "role": "QA Engineer", "bio": "Ingeniera de calidad con enfoque en automatización de pruebas y testing continuo." }
+    }
+  },
+  "stats": {
+    "projects": { "label": "Proyectos", "desc": "Completados exitosamente" },
+    "clients": { "label": "Clientes", "desc": "Satisfechos con nuestro trabajo" },
+    "satisfaction": { "label": "Satisfacción", "desc": "Tasa de clientes felices" },
+    "years": { "label": "Años", "desc": "De experiencia en el mercado" }
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que Dicen",
+    "titleHighlight": "Nuestros Clientes",
+    "items": {
+      "maria": {
+        "role": "CEO",
+        "content": "Excelente trabajo. Entregaron el proyecto a tiempo y con una calidad excepcional. El equipo siempre estuvo disponible para resolver dudas."
+      },
+      "juan": {
+        "role": "Fundador",
+        "content": "La app móvil superó nuestras expectativas. Nuestros clientes la aman y las ventas aumentaron significativamente."
+      },
+      "ana": {
+        "role": "Directora",
+        "content": "Profesionales de primera. El sistema ERP transformó completamente la operación de nuestra empresa."
+      },
+      "carlos": {
+        "role": "CTO",
+        "content": "Su expertise en seguridad y escalabilidad fue clave para nuestro proyecto. Código limpio y bien documentado."
+      },
+      "laura": {
+        "role": "Product Manager",
+        "content": "Increíble experiencia. Entendieron perfectamente nuestra visión y la convirtieron en realidad digital."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "¿Listo para",
+    "titleHighlight": "Comenzar",
+    "description": "Cuéntanos sobre tu proyecto y te ayudaremos a hacerlo realidad. Estamos listos para transformar tus ideas en soluciones tecnológicas.",
+    "info": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "locationValue": "Latinoamérica"
+    },
+    "steps": {
+      "step1": {
+        "title": "Información de Contacto",
+        "subtitle": "¿Cómo podemos comunicarnos contigo?"
+      },
+      "step2": {
+        "title": "Detalles del Proyecto",
+        "subtitle": "Cuéntanos qué necesitas"
+      },
+      "step3": {
+        "title": "Presupuesto y Tiempo",
+        "subtitle": "Información para planificar"
+      },
+      "step4": {
+        "title": "Información Adicional",
+        "subtitle": "Últimos detalles y resumen"
+      }
+    },
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "phone": "Teléfono / WhatsApp",
+      "phonePlaceholder": "+1 234 567 8900",
+      "company": "Empresa / Organización",
+      "companyPlaceholder": "Nombre de tu empresa (opcional)",
+      "solutionType": "Tipo de Solución",
+      "solutionTypePlaceholder": "Selecciona una opción",
+      "solutionOptions": {
+        "web": "Desarrollo Web",
+        "mobile": "Aplicación Móvil",
+        "software": "Software a Medida",
+        "ecommerce": "E-commerce",
+        "ai": "Inteligencia Artificial",
+        "consulting": "Consultoría Tecnológica",
+        "other": "Otro"
+      },
+      "description": "Descripción del Proyecto",
+      "descriptionPlaceholder": "Describe tu idea o proyecto. ¿Qué problema quieres resolver? ¿Qué funcionalidades necesitas?",
+      "hasDesign": "¿Tienes diseño o mockups?",
+      "designOptions": {
+        "complete": "Sí, tengo diseño",
+        "sketches": "Tengo ideas/bocetos",
+        "none": "Necesito diseño"
+      },
+      "budget": "Presupuesto Estimado (USD)",
+      "deadline": "Fecha de Entrega Deseada",
+      "deadlinePlaceholder": "Selecciona un rango",
+      "deadlineOptions": {
+        "lessThan1Month": "Menos de 1 mes",
+        "1to3Months": "1 a 3 meses",
+        "3to6Months": "3 a 6 meses",
+        "moreThan6Months": "Más de 6 meses",
+        "noDeadline": "Sin fecha definida"
+      },
+      "urgency": "Urgencia",
+      "urgencyOptions": {
+        "urgent": "Es urgente",
+        "normal": "Normal",
+        "flexible": "Flexible"
+      },
+      "howFoundUs": "¿Cómo nos encontraste?",
+      "howFoundUsPlaceholder": "Selecciona una opción",
+      "howFoundUsOptions": {
+        "social": "Redes Sociales",
+        "referral": "Referido",
+        "other": "Otro"
+      },
+      "summary": "Resumen de tu solicitud",
+      "back": "Atrás",
+      "next": "Siguiente",
+      "submit": "Enviar Solicitud",
+      "sending": "Enviando...",
+      "sent": "Solicitud Enviada"
+    }
+  },
+  "footer": {
+    "tagline": "Transformamos Ideas en Software",
+    "description": "Soluciones tecnológicas innovadoras para impulsar tu negocio.",
+    "navigation": "Navegación",
+    "servicesTitle": "Servicios",
+    "contactTitle": "Contacto",
+    "copyright": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  }
+}

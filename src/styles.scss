@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    @apply bg-neutral-900 text-white dark:bg-white dark:text-neutral-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100 dark:bg-neutral-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-300 dark:bg-neutral-700 rounded-full;
+    &:hover {
+      @apply bg-neutral-400 dark:bg-neutral-600;
+    }
+  }
+
+  * {
+    @apply border-neutral-200 dark:border-neutral-800;
+  }
+}
+
+@layer components {
+  // Glass effect
+  .glass {
+    @apply bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl;
+  }
+
+  .glass-card {
+    @apply bg-white/50 dark:bg-neutral-900/50 backdrop-blur-lg border border-neutral-200 dark:border-neutral-800 rounded-2xl;
+  }
+
+  // Buttons
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           font-semibold rounded-xl transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-neutral-900 dark:bg-white text-white dark:text-neutral-900
+           hover:bg-neutral-800 dark:hover:bg-neutral-100
+           focus:ring-neutral-500 dark:focus:ring-neutral-400
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent border-2 border-neutral-300 dark:border-neutral-700
+           text-neutral-900 dark:text-white
+           hover:bg-neutral-100 dark:hover:bg-neutral-800
+           hover:border-neutral-400 dark:hover:border-neutral-600;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-neutral-600 dark:text-neutral-400
+           hover:bg-neutral-100 dark:hover:bg-neutral-800
+           hover:text-neutral-900 dark:hover:text-white;
+  }
+
+  // Section badge
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           bg-neutral-100 dark:bg-neutral-800
+           border border-neutral-200 dark:border-neutral-700
+           rounded-full text-sm font-medium
+           text-neutral-600 dark:text-neutral-400;
+  }
+
+  // Card styles
+  .card {
+    @apply bg-white dark:bg-neutral-900
+           border border-neutral-300 dark:border-neutral-800
+           rounded-2xl transition-all duration-500;
+  }
+
+  .card-hover {
+    @apply card hover:-translate-y-2
+           hover:shadow-xl hover:shadow-neutral-200/50 dark:hover:shadow-neutral-900/50
+           hover:border-neutral-300 dark:hover:border-neutral-700;
+  }
+
+  // Text gradient
+  .text-gradient {
+    @apply bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-900
+           dark:from-white dark:via-neutral-400 dark:to-white
+           bg-clip-text text-transparent;
+  }
+
+  // Animated underline
+  .link-underline {
+    @apply relative;
+    &::after {
+      content: '';
+      @apply absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300;
+    }
+    &:hover::after {
+      @apply w-full;
+    }
+  }
+
+  // Shimmer effect
+  .shimmer {
+    @apply relative overflow-hidden;
+    &::before {
+      content: '';
+      @apply absolute inset-0 -translate-x-full
+             bg-gradient-to-r from-transparent via-white/20 to-transparent
+             animate-shimmer;
+    }
+  }
+
+  // Magnetic button wrapper
+  .magnetic {
+    @apply transition-transform duration-200 ease-out;
+  }
+}
+
+@layer utilities {
+  // Animation delays
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+
+  // Perspective utilities
+  .perspective-500 { perspective: 500px; }
+  .perspective-1000 { perspective: 1000px; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+
+  // Hide scrollbar
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // Text balance
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+// Swiper customization
+.swiper {
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background-color: #a3a3a3 !important;
+  opacity: 0.5 !important;
+  transition: all 0.3s;
+}
+
+.dark .swiper-pagination-bullet {
+  background-color: #525252 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #171717 !important;
+  opacity: 1 !important;
+  width: 1.5rem !important;
+  border-radius: 9999px !important;
+}
+
+.dark .swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #171717 !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  background-color: #ffffff !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1) !important;
+  transition: all 0.3s;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 0.875rem !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.dark .swiper-button-prev,
+.dark .swiper-button-next {
+  color: #ffffff !important;
+  background-color: #262626 !important;
+}
+
+.dark .swiper-button-prev:hover,
+.dark .swiper-button-next:hover {
+  background-color: #404040 !important;
+}
+
+// GSAP smooth scroll
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+// Theme transition
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

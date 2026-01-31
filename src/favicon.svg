@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .border-bg { fill: #171717; }
+    .inner-bg { fill: #ffffff; }
+    .letter-l { fill: #171717; }
+    .letter-s { fill: #a3a3a3; }
+
+    @media (prefers-color-scheme: dark) {
+      .border-bg { fill: #ffffff; }
+      .inner-bg { fill: #171717; }
+      .letter-l { fill: #ffffff; }
+      .letter-s { fill: #737373; }
+    }
+  </style>
+  <!-- Outer border -->
+  <rect class="border-bg" x="2" y="2" width="28" height="28" rx="6"/>
+  <!-- Inner background -->
+  <rect class="inner-bg" x="4" y="4" width="24" height="24" rx="4"/>
+  <!-- Letter L -->
+  <text class="letter-l" x="8" y="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="900">L</text>
+  <!-- Letter S -->
+  <text class="letter-s" x="16" y="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="900">S</text>
+</svg>

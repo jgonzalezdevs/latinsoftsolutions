@@ -1,0 +1,17 @@
+{
+  "name": "LatinSoftSolutions - Desarrollo de Software",
+  "short_name": "LatinSoft",
+  "description": "Agencia de desarrollo de software profesional. Transformamos tus ideas en soluciones tecnológicas innovadoras.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

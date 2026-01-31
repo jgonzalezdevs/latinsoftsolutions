@@ -1,0 +1,198 @@
+# docker-compose.yml
+# Configuracion principal para multiples aplicaciones frontend con nginx-proxy
+#
+# USO:
+#   docker-compose up -d
+#
+# Para agregar mas aplicaciones, copia el bloque de "landing" y cambia:
+#   - Nombre del servicio
+#   - VIRTUAL_HOST con el nuevo dominio
+#   - LETSENCRYPT_HOST con el nuevo dominio
+#   - build context o image segun corresponda
+
+services:
+  # ============================================
+  # NGINX REVERSE PROXY (Principal)
+  # ============================================
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy:latest
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - ./nginx-proxy/custom.conf:/etc/nginx/conf.d/custom.conf:ro
+    networks:
+      - proxy-network
+    environment:
+      - TRUST_DOWNSTREAM_PROXY=false
+
+  # ============================================
+  # LETS ENCRYPT COMPANION (SSL Automatico)
+  # ============================================
+  # Renovacion automatica cada 12 horas (built-in)
+  # Renueva certificados cuando quedan < 30 dias
+  acme-companion:
+    image: nginxproxy/acme-companion:latest
+    container_name: nginx-proxy-acme
+    restart: always
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs:rw
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+      - DEFAULT_EMAIL=${LETSENCRYPT_EMAIL:-contact@latinsoftsolutions.com}
+      # Intervalo de verificacion (en segundos) - default 3600 (1 hora)
+      - ACME_CA_URI=https://acme-v02.api.letsencrypt.org/directory
+      - DEBUG=0
+    networks:
+      - proxy-network
+
+  # ============================================
+  # CERTBOT RENEWAL CRON (Backup adicional)
+  # ============================================
+  # Cron job que verifica y fuerza renovacion cada 12 horas
+  certbot-cron:
+    image: alpine:latest
+    container_name: certbot-cron
+    restart: always
+    depends_on:
+      - acme-companion
+    volumes:
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    entrypoint: /bin/sh
+    command: >
+      -c "
+        apk add --no-cache openssl docker-cli curl &&
+        echo '#!/bin/sh
+        echo \"[CRON] Verificando certificados SSL - $$(date)\"
+
+        # Verificar cada certificado
+        for cert in /etc/nginx/certs/*.crt; do
+          if [ -f \"$$cert\" ]; then
+            domain=$$(basename \"$$cert\" .crt)
+            expiry=$$(openssl x509 -enddate -noout -in \"$$cert\" 2>/dev/null | cut -d= -f2)
+            expiry_epoch=$$(date -d \"$$expiry\" +%s 2>/dev/null || echo 0)
+            now_epoch=$$(date +%s)
+            days_left=$$(( (expiry_epoch - now_epoch) / 86400 ))
+
+            echo \"[CERT] $$domain - Expira en $$days_left dias ($$expiry)\"
+
+            # Si quedan menos de 7 dias, forzar renovacion
+            if [ $$days_left -lt 7 ]; then
+              echo \"[WARN] Certificado $$domain expira pronto! Forzando renovacion...\"
+              docker restart nginx-proxy-acme 2>/dev/null || true
+            fi
+          fi
+        done
+
+        echo \"[CRON] Verificacion completada - $$(date)\"
+        ' > /etc/periodic/12hour/check-certs &&
+        chmod +x /etc/periodic/12hour/check-certs &&
+        mkdir -p /etc/periodic/12hour &&
+        mv /etc/periodic/12hour/check-certs /check-certs.sh &&
+
+        echo '0 */12 * * * /check-certs.sh >> /var/log/certbot-cron.log 2>&1' > /var/spool/cron/crontabs/root &&
+
+        echo '[CRON] Iniciando servicio de verificacion de certificados...' &&
+        /check-certs.sh &&
+        crond -f -l 2
+      "
+    networks:
+      - proxy-network
+
+  # ============================================
+  # APLICACION 1: LatinSoftSolutions Landing
+  # ============================================
+  landing:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    container_name: latinsoftsolutions-landing
+    restart: always
+    expose:
+      - "80"
+    environment:
+      # Dominio principal para esta aplicacion
+      - VIRTUAL_HOST=latinsoftsolutions.com,www.latinsoftsolutions.com
+      - VIRTUAL_PORT=80
+      # SSL automatico con Let's Encrypt
+      - LETSENCRYPT_HOST=latinsoftsolutions.com,www.latinsoftsolutions.com
+    networks:
+      - proxy-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ============================================
+  # APLICACION 2: Admin Panel (Ejemplo)
+  # ============================================
+  # Descomenta este bloque para agregar otra aplicacion
+  #
+  # admin:
+  #   build:
+  #     context: /ruta/a/tu/proyecto/admin
+  #     dockerfile: Dockerfile
+  #   container_name: admin-panel
+  #   restart: always
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=admin.latinsoftsolutions.com
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_HOST=admin.latinsoftsolutions.com
+  #   networks:
+  #     - proxy-network
+
+  # ============================================
+  # APLICACION 3: Portal Cliente (Ejemplo)
+  # ============================================
+  # Descomenta este bloque para agregar otra aplicacion
+  #
+  # portal:
+  #   image: tu-imagen-portal:latest
+  #   container_name: portal-cliente
+  #   restart: always
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=portal.latinsoftsolutions.com
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_HOST=portal.latinsoftsolutions.com
+  #   networks:
+  #     - proxy-network
+
+# ============================================
+# VOLUMENES PERSISTENTES
+# ============================================
+volumes:
+  certs:
+    name: nginx-proxy-certs
+  vhost:
+    name: nginx-proxy-vhost
+  html:
+    name: nginx-proxy-html
+  acme:
+    name: nginx-proxy-acme
+
+# ============================================
+# RED COMPARTIDA
+# ============================================
+networks:
+  proxy-network:
+    name: proxy-network
+    driver: bridge
