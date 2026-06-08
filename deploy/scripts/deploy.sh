@@ -12,6 +12,10 @@ DEPLOY_DIR="$(dirname "$SCRIPT_DIR")"
 
 cd "$DEPLOY_DIR"
 
+# Activar BuildKit para usar los cache mounts del Dockerfile (npm + Angular)
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
 # Colores para output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -44,8 +48,14 @@ check_env() {
 }
 
 build() {
-    print_status "Construyendo imagenes..."
-    docker compose build --no-cache
+    # Por defecto usa cache (rápido). Para build limpio: ./deploy.sh build --no-cache
+    if [ "${2:-}" = "--no-cache" ] || [ "${2:-}" = "clean" ]; then
+        print_warning "Construyendo SIN cache (lento)..."
+        docker compose build --no-cache
+    else
+        print_status "Construyendo imagenes (con cache)..."
+        docker compose build
+    fi
     print_status "Build completado!"
 }
 
@@ -102,9 +112,9 @@ update() {
         cd "$DEPLOY_DIR"
     fi
 
-    # Rebuild and restart
+    # Rebuild and restart (con cache -> rápido gracias a los cache mounts)
     print_status "Reconstruyendo imagen..."
-    docker compose build --no-cache landing
+    docker compose build landing
 
     print_status "Reiniciando contenedor..."
     docker compose up -d landing

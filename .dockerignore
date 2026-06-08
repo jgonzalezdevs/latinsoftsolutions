@@ -27,8 +27,20 @@ README.md
 # Testing
 coverage
 .nyc_output
+e2e
+
+# Caches de build (no enviar al contexto)
+.angular
+out
+.cache
+
+# Carpetas que NO necesita la imagen (reduce el contexto de build)
+/deploy
+/projects
+/team
 
 # Misc
 .DS_Store
 *.log
 .env*
+*.local
