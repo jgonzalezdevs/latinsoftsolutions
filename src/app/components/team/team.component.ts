@@ -133,17 +133,17 @@ export class TeamComponent implements AfterViewInit {
   @ViewChild('pagination') pagination!: ElementRef;
   private platformId = inject(PLATFORM_ID);
 
-  teamMembers = [
-    { name: 'Juan González', initials: 'JG', key: 'juan', skills: ['Strategic Planning', 'Product Vision', 'Team Leadership', 'Cloud Architecture', 'Agile/Scrum'], image: 'assets/images/team/juan-gonzalez.jpg' },
-    { name: 'Ana Martínez', initials: 'AM', key: 'ana', skills: ['AWS', 'Kubernetes', 'System Design'] },
-    { name: 'Jexel Gómez', initials: 'JG', key: 'jexel', skills: ['Python', 'FastAPI', 'Angular', 'React', 'PostgreSQL', 'MongoDB', 'LangChain', 'AWS'], image: 'assets/images/team/jexel-gomez.jpg' },
-    { name: 'Moisés Rodríguez', initials: 'MR', key: 'moises', skills: ['Figma', 'Adobe Creative Suite', 'UX/UI Design', 'Motion Graphics', 'Branding'], image: 'assets/images/team/moises-rodriguez.jpg' },
-    { name: 'Diego López', initials: 'DL', key: 'diego', skills: ['React', 'Node.js', 'TypeScript'] },
-    { name: 'María García', initials: 'MG', key: 'maria', skills: ['Figma', 'Design Systems', 'User Research'] },
-    { name: 'Andrés Pérez', initials: 'AP', key: 'andres', skills: ['Docker', 'Terraform', 'CI/CD'] },
-    { name: 'Laura Sánchez', initials: 'LS', key: 'laura', skills: ['Python', 'TensorFlow', 'ML/AI'] },
-    { name: 'Roberto Torres', initials: 'RT', key: 'roberto', skills: ['Flutter', 'React Native', 'Swift'] },
-    { name: 'Patricia Flores', initials: 'PF', key: 'patricia', skills: ['Selenium', 'Cypress', 'Test Automation'] }
+  teamMembers: { name: string; initials: string; key: string; skills: string[]; image?: string }[] = [
+    { name: 'Juan González', initials: 'JG', key: 'juan', skills: ['Strategic Planning', 'Product Vision', 'Team Leadership', 'Cloud Architecture', 'AWS', 'Agile/Scrum', 'Roadmapping', 'Stakeholder Management'] },
+    { name: 'Ana Martínez', initials: 'AM', key: 'ana', skills: ['AWS', 'Kubernetes', 'System Design', 'Microservices', 'Docker', 'Distributed Systems', 'PostgreSQL', 'Security'] },
+    { name: 'Manuel Rios', initials: 'MR', key: 'manuel', skills: ['Python', 'FastAPI', 'Django', 'Node.js', 'Angular', 'React', 'Vue.js', 'TypeScript', 'PostgreSQL', 'MongoDB', 'Redis', 'LangChain', 'OpenAI', 'AWS'] },
+    { name: 'Moisés Rodríguez', initials: 'MR', key: 'moises', skills: ['Figma', 'Adobe Creative Suite', 'UX/UI Design', 'Design Systems', 'Prototyping', 'User Research', 'Motion Graphics', 'Branding'] },
+    { name: 'Diego López', initials: 'DL', key: 'diego', skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Express', 'GraphQL', 'Tailwind', 'Jest'] },
+    { name: 'María García', initials: 'MG', key: 'maria', skills: ['Figma', 'Design Systems', 'User Research', 'Prototyping', 'Wireframing', 'Accessibility', 'Adobe XD', 'Usability Testing'] },
+    { name: 'Andrés Pérez', initials: 'AP', key: 'andres', skills: ['Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'AWS', 'Azure', 'GitHub Actions', 'Linux'] },
+    { name: 'Laura Sánchez', initials: 'LS', key: 'laura', skills: ['Python', 'TensorFlow', 'PyTorch', 'NLP', 'Computer Vision', 'scikit-learn', 'OpenAI', 'Data Analysis'] },
+    { name: 'Roberto Torres', initials: 'RT', key: 'roberto', skills: ['Flutter', 'React Native', 'Swift', 'Kotlin', 'Dart', 'iOS', 'Android', 'Firebase'] },
+    { name: 'Patricia Flores', initials: 'PF', key: 'patricia', skills: ['Selenium', 'Cypress', 'Playwright', 'Test Automation', 'Jest', 'CI/CD', 'Postman', 'QA'] }
   ];
 
   ngAfterViewInit() {

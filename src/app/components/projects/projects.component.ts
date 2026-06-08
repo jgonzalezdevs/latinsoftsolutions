@@ -9,6 +9,7 @@ interface Project {
   tech: string[];
   emoji: string;
   gradient: string;
+  cover: string;
   images: string[];
   link?: string;
 }
@@ -48,10 +49,9 @@ interface Project {
                   <div
                     class="relative h-64 overflow-hidden"
                     [style.background]="project.gradient">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                      <span class="text-8xl opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700">{{ project.emoji }}</span>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-900 via-transparent to-transparent"></div>
+                    <img [src]="project.cover" [alt]="('projects.items.' + project.key + '.title') | translate"
+                      class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-900 via-transparent to-transparent pointer-events-none"></div>
 
                     <!-- Category Badge -->
                     <div class="absolute top-4 left-4">
@@ -151,9 +151,9 @@ interface Project {
               <div
                 class="relative aspect-video rounded-xl overflow-hidden mb-4"
                 [style.background]="selectedProject.gradient">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="text-9xl">{{ selectedProject.emoji }}</span>
-                </div>
+                <img [src]="selectedProject.images[currentImageIndex]" [alt]="('projects.items.' + selectedProject.key + '.title') | translate"
+                  class="absolute inset-0 w-full h-full object-cover">
+
 
                 <!-- Image Navigation Arrows -->
                 @if (selectedProject.images.length > 1) {
@@ -189,11 +189,8 @@ interface Project {
                     [class.dark:border-white]="currentImageIndex === i"
                     [class.border-transparent]="currentImageIndex !== i"
                     [class.opacity-50]="currentImageIndex !== i">
-                    <div
-                      class="w-full h-full flex items-center justify-center"
-                      [style.background]="selectedProject.gradient">
-                      <span class="text-2xl">{{ selectedProject.emoji }}</span>
-                    </div>
+                    <img [src]="image" class="w-full h-full object-cover">
+
                   </button>
                 }
               </div>
@@ -310,16 +307,16 @@ export class ProjectsComponent implements AfterViewInit {
   currentImageIndex = 0;
 
   projects: Project[] = [
-    { id: 'tienda-online', key: 'tiendaOnline', tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis'], emoji: '🛒', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', images: ['main', 'dashboard', 'products', 'checkout'], link: 'https://ejemplo.com' },
-    { id: 'delivery-app', key: 'deliveryApp', tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io'], emoji: '🚀', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', images: ['main', 'tracking', 'orders', 'profile'], link: 'https://ejemplo.com' },
-    { id: 'sistema-erp', key: 'sistemaErp', tech: ['Angular', 'Python', 'AWS', 'Docker'], emoji: '📊', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', images: ['main', 'dashboard', 'inventory', 'reports'], link: 'https://ejemplo.com' },
-    { id: 'dashboard-analytics', key: 'dashboardAnalytics', tech: ['React', 'D3.js', 'Firebase', 'BigQuery'], emoji: '📈', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', images: ['main', 'charts', 'reports', 'settings'], link: 'https://ejemplo.com' },
-    { id: 'plataforma-educativa', key: 'plataformaEducativa', tech: ['Vue.js', 'Laravel', 'MySQL', 'WebRTC'], emoji: '🎓', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', images: ['main', 'courses', 'video', 'certificates'], link: 'https://ejemplo.com' },
-    { id: 'chatbot-ia', key: 'chatbotIa', tech: ['Python', 'OpenAI', 'FastAPI', 'LangChain'], emoji: '🤖', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', images: ['main', 'chat', 'analytics', 'training'], link: 'https://ejemplo.com' },
-    { id: 'app-fintech', key: 'appFintech', tech: ['Flutter', 'Go', 'PostgreSQL', 'Plaid'], emoji: '💳', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', images: ['main', 'dashboard', 'transactions', 'goals'], link: 'https://ejemplo.com' },
-    { id: 'marketplace-b2b', key: 'marketplaceB2b', tech: ['Next.js', 'NestJS', 'Elasticsearch', 'Kubernetes'], emoji: '🏪', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', images: ['main', 'catalog', 'orders', 'analytics'], link: 'https://ejemplo.com' },
-    { id: 'sistema-reservas', key: 'sistemaReservas', tech: ['Angular', 'Node.js', 'PostgreSQL', 'Twilio'], emoji: '📅', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', images: ['main', 'calendar', 'bookings', 'reports'], link: 'https://ejemplo.com' },
-    { id: 'iot-dashboard', key: 'iotDashboard', tech: ['React', 'Python', 'InfluxDB', 'MQTT'], emoji: '🔧', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', images: ['main', 'sensors', 'alerts', 'analytics'], link: 'https://ejemplo.com' }
+    { id: 'tienda-online', key: 'tiendaOnline', tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis'], emoji: '🛒', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', cover: 'assets/images/projects/tienda-online-1.png', images: ['assets/images/projects/tienda-online-1.png', 'assets/images/projects/tienda-online-2.png', 'assets/images/projects/tienda-online-3.png'], link: 'https://ejemplo.com' },
+    { id: 'delivery-app', key: 'deliveryApp', tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io'], emoji: '🚀', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', cover: 'assets/images/projects/delivery-app-1.png', images: ['assets/images/projects/delivery-app-1.png', 'assets/images/projects/delivery-app-2.png', 'assets/images/projects/delivery-app-3.png'], link: 'https://ejemplo.com' },
+    { id: 'sistema-erp', key: 'sistemaErp', tech: ['Angular', 'Python', 'AWS', 'Docker'], emoji: '📊', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', cover: 'assets/images/projects/sistema-erp-1.png', images: ['assets/images/projects/sistema-erp-1.png', 'assets/images/projects/sistema-erp-2.png', 'assets/images/projects/sistema-erp-3.png'], link: 'https://ejemplo.com' },
+    { id: 'dashboard-analytics', key: 'dashboardAnalytics', tech: ['React', 'D3.js', 'Firebase', 'BigQuery'], emoji: '📈', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', cover: 'assets/images/projects/dashboard-analytics-1.png', images: ['assets/images/projects/dashboard-analytics-1.png', 'assets/images/projects/dashboard-analytics-2.png', 'assets/images/projects/dashboard-analytics-3.png'], link: 'https://ejemplo.com' },
+    { id: 'plataforma-educativa', key: 'plataformaEducativa', tech: ['Vue.js', 'Laravel', 'MySQL', 'WebRTC'], emoji: '🎓', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', cover: 'assets/images/projects/plataforma-educativa-1.png', images: ['assets/images/projects/plataforma-educativa-1.png', 'assets/images/projects/plataforma-educativa-2.png', 'assets/images/projects/plataforma-educativa-3.png'], link: 'https://ejemplo.com' },
+    { id: 'chatbot-ia', key: 'chatbotIa', tech: ['Python', 'OpenAI', 'FastAPI', 'LangChain'], emoji: '🤖', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', cover: 'assets/images/projects/chatbot-ia-1.png', images: ['assets/images/projects/chatbot-ia-1.png', 'assets/images/projects/chatbot-ia-2.png', 'assets/images/projects/chatbot-ia-3.png'], link: 'https://ejemplo.com' },
+    { id: 'app-fintech', key: 'appFintech', tech: ['Flutter', 'Go', 'PostgreSQL', 'Plaid'], emoji: '💳', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', cover: 'assets/images/projects/app-fintech-1.png', images: ['assets/images/projects/app-fintech-1.png', 'assets/images/projects/app-fintech-2.png', 'assets/images/projects/app-fintech-3.png'], link: 'https://ejemplo.com' },
+    { id: 'marketplace-b2b', key: 'marketplaceB2b', tech: ['Next.js', 'NestJS', 'Elasticsearch', 'Kubernetes'], emoji: '🏪', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', cover: 'assets/images/projects/marketplace-b2b-1.png', images: ['assets/images/projects/marketplace-b2b-1.png', 'assets/images/projects/marketplace-b2b-2.png', 'assets/images/projects/marketplace-b2b-3.png'], link: 'https://ejemplo.com' },
+    { id: 'sistema-reservas', key: 'sistemaReservas', tech: ['Angular', 'Node.js', 'PostgreSQL', 'Twilio'], emoji: '📅', gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%)', cover: 'assets/images/projects/sistema-reservas-1.png', images: ['assets/images/projects/sistema-reservas-1.png', 'assets/images/projects/sistema-reservas-2.png', 'assets/images/projects/sistema-reservas-3.png'], link: 'https://ejemplo.com' },
+    { id: 'iot-dashboard', key: 'iotDashboard', tech: ['React', 'Python', 'InfluxDB', 'MQTT'], emoji: '🔧', gradient: 'linear-gradient(135deg, #e5e5e5 0%, #d4d4d4 100%)', cover: 'assets/images/projects/iot-dashboard-1.png', images: ['assets/images/projects/iot-dashboard-1.png', 'assets/images/projects/iot-dashboard-2.png', 'assets/images/projects/iot-dashboard-3.png'], link: 'https://ejemplo.com' }
   ];
 
   getHighlights(projectKey: string): string[] {
