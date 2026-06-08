@@ -147,6 +147,20 @@
         "description": "Sistema de monitoreo industrial con sensores en tiempo real.",
         "fullDescription": "Plataforma de monitoreo industrial IoT con soporte para más de 1000 sensores simultáneos, visualización en tiempo real, alertas predictivas basadas en machine learning.",
         "highlights": ["1000+ sensores", "Tiempo real", "ML predictivo"]
+      },
+      "xpinnit": {
+        "title": "Xpinnit",
+        "category": "SaaS / Productividad",
+        "description": "Plataforma de gestión de metas, tareas y eventos por sprints, multiusuario.",
+        "fullDescription": "Xpinnit (\"Set goals. Take action.\") es una plataforma SaaS de productividad para definir metas y ejecutarlas por sprints. Incluye tableros de eventos, asignación de tareas multiusuario con responsables y avances, invitaciones por evento, seguimiento de progreso y exportación de tareas a PDF y Excel.",
+        "highlights": ["Gestión por sprints", "Multiusuario", "Exportación PDF/Excel"]
+      },
+      "laAgencia": {
+        "title": "La Agencia — Boletería",
+        "category": "Sistema de Gestión",
+        "description": "Sistema de gestión y venta de boletos de viaje, con calendario y reportes.",
+        "fullDescription": "Sistema integral de boletería para una agencia de viajes: panel de estadísticas en tiempo real (clientes, pedidos, metas de lucro), calendario de viajes en vista lista y mensual, registro de ventas con datos del cliente y ruta, control de usuarios y reportes de exportación a Excel y PDF. Interfaz multi-idioma.",
+        "highlights": ["Calendario de viajes", "Reportes de ventas", "Multi-idioma"]
       }
     }
   },

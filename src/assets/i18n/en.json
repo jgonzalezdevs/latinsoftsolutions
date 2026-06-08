@@ -147,6 +147,20 @@
         "description": "Industrial monitoring system with real-time sensors.",
         "fullDescription": "Industrial IoT monitoring platform supporting more than 1000 simultaneous sensors, real-time visualization, predictive alerts based on machine learning.",
         "highlights": ["1000+ sensors", "Real-time", "Predictive ML"]
+      },
+      "xpinnit": {
+        "title": "Xpinnit",
+        "category": "SaaS / Productivity",
+        "description": "Goal, task and event management platform organized by sprints, multi-user.",
+        "fullDescription": "Xpinnit (\"Set goals. Take action.\") is a productivity SaaS platform to define goals and execute them through sprints. It includes event boards, multi-user task assignment with owners and progress, per-event invitations, progress tracking and task export to PDF and Excel.",
+        "highlights": ["Sprint management", "Multi-user", "PDF/Excel export"]
+      },
+      "laAgencia": {
+        "title": "La Agencia — Ticketing",
+        "category": "Management System",
+        "description": "Travel ticketing and sales management system, with calendar and reports.",
+        "fullDescription": "End-to-end ticketing system for a travel agency: real-time stats dashboard (clients, orders, profit goals), trip calendar in list and monthly views, sales records with client and route data, user management and export reports to Excel and PDF. Multi-language interface.",
+        "highlights": ["Trip calendar", "Sales reports", "Multi-language"]
       }
     }
   },
